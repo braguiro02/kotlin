@@ -1,33 +1,43 @@
-package com.example.trabalho1_calculo_combustivel
+package com.example.trabalho
 
 import android.os.Bundle
+import android.os.Message
 import android.util.Log
-import com.google.android.material.snackbar.Snackbar
+import android.view.View
+import android.widget.AbsListView
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
-
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.content_main)
-        setSupportActionBar(toolbar)
+        setContentView(R.layout.activity_main)
+
+        var texto_um = texto1
+        var texto_dois = texto2
+        var botao = botao
+        var saida = saida
+
 
         botao.setOnClickListener {
-            var gas = gasolina.text.toString().toFloat()
-            var al = alcool.text.toString().toFloat()
-            if (gas * 0.7 > al) {
-                resultado.setText("Álcool!")
-            } else {
-                resultado.setText("Gasolina!")
-            }
-            Log.i("AULA", "Fiz a conta!")
-        }
 
+            var gasolina = texto_um.text.toString().toFloat()
+            var alcool = texto_dois.text.toString().toFloat()
+
+            if ( gasolina*0.7 > alcool) {
+                Toast.makeText(this, "Gasolina", Toast.LENGTH_LONG).show()
+                saida.text = "Gasolina"
+
+            } else {
+                Toast.makeText(this, "alcool", Toast.LENGTH_LONG).show()
+                saida.text = "Gasolina"
+            }
+
+            Log.i("AULA", "CLIQUEI NO BOTAO")
+        }
     }
+
+
 }
